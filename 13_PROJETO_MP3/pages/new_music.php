@@ -1,15 +1,4 @@
-<a href="?page=albuns">Voltar para Álbuns</a>
-<h1>Cadastrar Nova Música para Álbum <?= $_GET['album'] ?></h1>
-
-<form action="#" method="post" enctype="multipart/form-data">
-    <div class="form-group mb-2">
-        <input type="file" name="audio" class="form-control" id="">
-    </div>
-    <button type="submit" class="btn btn-success">Cadastrar</button>
-</form>
-
 <?php
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $album = $_GET['album'];
 
@@ -25,5 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo 'Falha no Upload!';
     }
 }
-
 ?>
+
+<a href="?page=albuns"><i class="fa-solid fa-arrow-left voltar"></i></a>
+<h1>Cadastrar Nova Música para Álbum <?= $_GET['album'] ?></h1>
+
+<form class="form" action="#" method="post" enctype="multipart/form-data">
+    <div class="form-group mb-2">
+        <label for="" class="mb-2 fw-bold">Adicione a nova música:</label>
+        <input type="file" name="audio" class="form-control" id="">
+    </div>
+    <button type="submit" class="btn btn btn-add">Cadastrar</button>
+</form>

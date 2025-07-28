@@ -1,7 +1,10 @@
-<a href="?page=albuns">Voltar para Álbuns</a>
-<h1>Músicas do Álbum <?= $_GET['album'] ?></h1>
-
-<a href="?page=new_music&album=<?= $_GET['album'] ?>" class="btn btn-success">+ Cadastrar Nova Música</a>
+<a href="?page=albuns"><i class="fa-solid fa-arrow-left voltar"></i></a>
+<nav class="navbar">
+    <div class="container-fluid">
+        <h1>Músicas do Álbum <?= $_GET['album'] ?></h1>
+        <a href="?page=new_music&album=<?= $_GET['album'] ?>" class="btn btn-add">+ Cadastrar Nova Música</a>
+    </div>
+</nav>
 
 <hr>
 
@@ -12,10 +15,11 @@ $musics = getMusics($album);
 foreach ($musics as $music):
 ?>
 
-<div class="col-12">
-    <audio src="<?=$music?>" controls></audio>
-</div>
+    <div class="audio container-fluid px-0 mb-4">
+        <h5 class="text-white"><?= basename($music) ?></h5>
+        <audio src="<?= $music ?>" controls class="audio-player w-100"></audio>
+    </div>
 
-<?php 
+<?php
 endforeach;
 ?>
